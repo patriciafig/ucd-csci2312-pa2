@@ -47,7 +47,7 @@ For this assignment, no external libraries should be used, except for the Standa
 
 ### Coding style
 
-Familiarize yourself with and start following [these coding style guidelines](http://courses.cms.caltech.edu/cs11/material/cpp/donnie/cppstyle.html). There are others on the Web. Pick one and be consistent. _**Note:** If you stumble on the Google C++ Style Guide, be advised that it has been heavily criticized by many leading C++ programmers. I don't advise you to follow it, especially the more advanced features. This Guide is for entry-level coders at Google who need to be able to work with their legacy code. It is not advisable for new projects and novice programmers._
+Familiarize yourself with and start following [coding style guidelines](http://courses.cms.caltech.edu/cs11/material/cpp/donnie/cppstyle.html). There are others on the Web. Pick one and be consistent. _**Note:** If you stumble on the Google C++ Style Guide, be advised that it has been heavily criticized by many leading C++ programmers. I don't advise you to follow it, especially the more advanced features. This Guide is for entry-level coders at Google who need to be able to work with their legacy code. It is not advisable for new projects and novice programmers._
 
 ### References
 
@@ -152,6 +152,7 @@ Two websites with C++ Reference, [here](http://en.cppreference.com/w/) and [here
    }
    ```
    **Note:** One `Point` is _smaller_ than another **iff**, for a given dimension position, the value of the first point is **less** than the value of the second point, and all the values on the left, if any, are all equal. The values on the right don't matter. For example, `Point` (5.0, 5.0, 4.5, 10.1, **13.4**, 151.3) is _smaller_ than (5.0, 5.0, 4.5, 10.1, **13.5**, 15.9).
+   
    **Note:** Implement `operator<`, then use it to implement `operator>` and `operator>=`. Finally, use `operator>` to implement `operator<=`.
 
 13. Implement the overloaded `friend` insertion `operator<<` with a `std::ostream` and a `const Point &` arguments. A `friend` operator is a _non-member_ function with **private** access to the class where it is declared.
@@ -227,6 +228,7 @@ Two websites with C++ Reference, [here](http://en.cppreference.com/w/) and [here
 7. Implement the member `contains` to return `true` or `false` if the `Cluster` contains a `Point` equal (by `Point::operator==`) to the object referenced in the argument.
 
 8. Implement the `const` member subscript `operator[]` to return a `const` reference to a particular `Point` in the ordered linked-list. The `Point` cannot be modified.
+
    **Note:** Don't overuse this operator, because it is very inefficient for a singly-linked list.
 
 9. Implement the _compound assignment_ member `operator+=` and `operator-=` with a `const Point &` argument.
@@ -311,6 +313,7 @@ Two websites with C++ Reference, [here](http://en.cppreference.com/w/) and [here
    4.1,5.6,5,1.6,7.9
    ```
    **Note:** The `Cluster` reads the input stream line-by-line, creates a `Point` with the right dimensionality for each line, and then delegates the reading of the line to the `operator<<` for `Point`.
+   **Note:** You might find the [std::count](http://en.cppreference.com/w/cpp/algorithm/count) function useful in determining the dimensionality of the Point you need to pass an input line to.
 
 #### Clustering namespace
 
